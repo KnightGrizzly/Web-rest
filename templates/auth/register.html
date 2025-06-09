@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{name_restaurant}}{% endblock title %}
+
+{% block content %}
+<h2>Реєстрація</h2>
+
+<form method="post">
+    <input type ="hidden" name="csrf_token" value = "{{ csrf_token() }}">
+    Ім'я користувача: <input type="text" name="username"><br>
+    Email користувача: <input type="email" name="email"><br>
+    Пароль: <input type="password" name="password"><br>
+    <input type="submit" value="Зареєструватися">
+</form>
+
+{% endblock %}

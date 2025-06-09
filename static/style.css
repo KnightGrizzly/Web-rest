@@ -1,0 +1,443 @@
+/* Sushi Restaurant Custom Styles */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans:wght@300;400;500;700&display=swap');
+
+/* Root Variables */
+:root {
+  --primary-red: #c8102e;
+  --dark-red: #a00d24;
+  --light-red: #e8394a;
+  --gold: #d4af37;
+  --light-gold: #f4e6a1;
+  --dark-gray: #2c2c2c;
+  --medium-gray: #5a5a5a;
+  --light-gray: #f8f8f8;
+  --white: #ffffff;
+  --black: #1a1a1a;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(45deg, var(--primary-red), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--primary-red);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Container Enhancements */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navigation Styles */
+.navbar {
+  background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+  padding: 1rem 0;
+  box-shadow: 0 4px 20px var(--shadow-dark);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold) !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 20px var(--gold);
+}
+
+.navbar-nav .nav-link {
+  color: var(--white) !important;
+  font-weight: 500;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem !important;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-nav .nav-link:hover {
+  background: linear-gradient(45deg, var(--primary-red), var(--light-red));
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(200, 16, 46, 0.3);
+}
+
+.navbar-nav .nav-link.active {
+  background: var(--gold);
+  color: var(--black) !important;
+}
+
+/* Flash Messages */
+.alert {
+  border-radius: 15px;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 2rem 0;
+  font-weight: 500;
+  box-shadow: 0 5px 20px var(--shadow);
+}
+
+.alert-success {
+  background: linear-gradient(45deg, #28a745, #20c997);
+  color: white;
+}
+
+.alert-danger {
+  background: linear-gradient(45deg, var(--primary-red), var(--light-red));
+  color: white;
+}
+
+.alert-info {
+  background: linear-gradient(45deg, #17a2b8, #20c997);
+  color: white;
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px var(--shadow-dark);
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+  color: var(--white);
+  font-weight: 600;
+  padding: 1.5rem;
+  border: none;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-title {
+  color: var(--primary-red);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Button Styles */
+.btn {
+  border-radius: 25px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--primary-red), var(--light-red));
+  color: var(--white);
+  box-shadow: 0 5px 15px rgba(200, 16, 46, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, var(--dark-red), var(--primary-red));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(200, 16, 46, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(45deg, var(--gold), var(--light-gold));
+  color: var(--black);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(45deg, var(--light-gold), var(--gold));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+
+.btn-outline-primary {
+  border: 2px solid var(--primary-red);
+  color: var(--primary-red);
+  background: transparent;
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary-red);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Form Styles */
+.form-control {
+  border-radius: 15px;
+  border: 2px solid #e9ecef;
+  padding: 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 0.2rem rgba(200, 16, 46, 0.25);
+}
+
+.form-label {
+  color: var(--dark-gray);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Table Styles */
+.table {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--shadow);
+  background: var(--white);
+}
+
+.table thead th {
+  background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+  color: var(--white);
+  border: none;
+  padding: 1.5rem 1rem;
+  font-weight: 600;
+}
+
+.table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background: linear-gradient(135deg, var(--light-gray), var(--white));
+  transform: scale(1.02);
+}
+
+.table tbody td {
+  padding: 1rem;
+  border-color: #e9ecef;
+  vertical-align: middle;
+}
+
+/* Menu Item Styles */
+.menu-item {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-red), var(--gold));
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px var(--shadow-dark);
+}
+
+.menu-item-title {
+  color: var(--primary-red);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.menu-item-price {
+  color: var(--gold);
+  font-size: 1.25rem;
+  font-weight: 700;
+  float: right;
+}
+
+.menu-item-description {
+  color: var(--medium-gray);
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Badge Styles */
+.badge {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.badge-primary {
+  background: linear-gradient(45deg, var(--primary-red), var(--light-red));
+}
+
+.badge-warning {
+  background: linear-gradient(45deg, var(--gold), var(--light-gold));
+  color: var(--black);
+}
+
+/* Footer Styles */
+.footer {
+  background: linear-gradient(135deg, var(--black), var(--dark-gray));
+  color: var(--white);
+  padding: 3rem 0 1rem;
+  margin-top: 5rem;
+}
+
+.footer h5 {
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footer p, .footer a {
+  color: var(--light-gray);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--gold);
+  transition: color 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .menu-item {
+    padding: 1.5rem;
+  }
+  
+  .menu-item-price {
+    float: none;
+    display: block;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Special Effects */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Scroll Effects */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Japanese Pattern Background */
+.japanese-pattern {
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(200, 16, 46, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(200, 16, 46, 0.1) 0%, transparent 50%);
+  background-size: 60px 60px, 40px 40px, 80px 80px;
+  background-position: 0 0, 20px 20px, 40px 40px;
+}
+
+/* Loading Animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(200, 16, 46, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-red);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
