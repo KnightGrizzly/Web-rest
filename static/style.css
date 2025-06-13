@@ -436,6 +436,16 @@ h2 {
   animation: spin 1s ease-in-out infinite;
 }
 
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  border-top: 2px solid #c99f5b;
+  font-size: 0.9rem;
+}
+
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

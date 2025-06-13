@@ -4,7 +4,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from app import app
 from models import User
-from settings import  Session, config
+from settings import  Session_db, config
 
 
 @app.route("/profile")
@@ -28,7 +28,7 @@ def register():
         else:
             new_user = User(username=username, password=hashed, email=email)
 
-            with Session() as session_db:
+            with Session_db() as session_db:
                 session_db.add(new_user)
                 session_db.commit()
 

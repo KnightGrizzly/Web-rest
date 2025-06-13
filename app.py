@@ -3,7 +3,8 @@ from flask_login import LoginManager
 from flask_wtf import CSRFProtect
 
 from models import User
-from settings import DatabaseConfig, Session
+from settings import DatabaseConfig, Session_db
+
 
 app = Flask(__name__)
 app.config.from_object(DatabaseConfig)
@@ -21,7 +22,8 @@ def load_user(user_id):
     return user
 
 
-from routes import *
+from routes import*
+
 
 if __name__ == "__main__":
     print(app.url_map)

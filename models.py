@@ -4,7 +4,7 @@ from sqlalchemy import String, select, DateTime, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from werkzeug.security import generate_password_hash
 from sqlalchemy.dialects.postgresql import JSONB
-from settings import Base, Session
+from settings import Base, Session_db
 
 
 class User(UserMixin, Base):
@@ -30,7 +30,7 @@ class User(UserMixin, Base):
 
     @staticmethod
     def get(user_id: int):
-        with Session() as conn:
+        with Session_db() as conn:
             stmt = select(User).where(User.id == user_id)
             user = conn.scalar(stmt)
             if user:
@@ -39,8 +39,9 @@ class User(UserMixin, Base):
     @staticmethod
     def get_by_username(username):
 
-        with Session() as conn:
-            stmt = select(User).where(User.username == username)
+        with Session_db() as conn:
+            # stmt = select(User).where(User.username == username)
+            stmt = select(User).filter_by(username = username)
             user = conn.scalar(stmt)
             return user if user else None
 
@@ -76,6 +77,7 @@ class Orders(Base):
     user = relationship("User", foreign_keys="Orders.user_id", back_populates="orders")
 
 
+
 # Ініціалізація бази даних і додавання товарів
 def init_db():
     base = Base()
@@ -89,10 +91,27 @@ def init_db():
         is_admin=True
     )
     
+    m1 = Menu(
+        name = "Burger",
+        weight = "300",
+        ingredients = "булка, котлета теляча, сир, помідор, соус, лук, зелнь",
+        description = "Соковитий бургер",
+        price = 250, 
+        file_name = "burger.jpg",
+    )
+    
+    m2 = Menu(
+        name = "Салат з лососем",
+        weight = "150",
+        ingredients = "Лосось, мікс салатів, кунжут, соус",
+        description = "Салат дууууже смачний!!!",
+        price = 145, 
+        file_name = "salad.jpg",
+    )
     
 
-    with Session() as conn:
-        conn.add(user_admin)
+    with Session_db() as conn:
+        conn.add_all([user_admin, m1, m2])
         conn.commit()
 
 
