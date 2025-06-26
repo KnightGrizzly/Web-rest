@@ -1,16 +1,31 @@
 {% extends "base.html" %}
 
 {% block title %}{{name_restaurant}}{% endblock title %}
+
+
 {% block content %}
 <h2>Вхід</h2>
 
-<form method="post">
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card p-4 shadow" style="min-width: 300px; max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-4">Вхід</h2>
+        <form method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            
+            <div class="mb-3">
+                <label for="username" class="form-label">Ім'я користувача:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
 
-    <input type ="hidden" name="csrf_token" value = "{{ csrf_token() }}">
-    Ім'я користувача: <input type="text" name="username"><br>
-    Пароль: <input type="password" name="password"><br>
-    <input type="submit" value="Увійти">
-</form>
+            <div class="mb-3">
+                <label for="password" class="form-label">Пароль:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
 
-
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Увійти</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}

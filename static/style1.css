@@ -12,7 +12,6 @@
   --gold: #FFD700;
   --warm-gold: #FFA500;
   --cream: #FFF8DC;
-  --white: #FFFFFF;
   --shadow: rgba(0, 0, 0, 0.3);
   --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
   --gradient-red: linear-gradient(135deg, #DC143C, #8B0000);
@@ -26,7 +25,7 @@
 body {
   font-family: 'Noto Sans JP', sans-serif;
   background: var(--primary-black);
-  color: var(--white);
+  color: var(--cream);
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -63,7 +62,6 @@ body::before {
   padding: 30px;
   position: relative;
   border: 2px solid rgba(220, 20, 60, 0.3);
-  color: var(--white);
 }
 
 /* Японські декоративні елементи */
@@ -92,7 +90,7 @@ body::before {
 /* Заголовки в японському стилі */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Cinzel', serif;
-  color: var(--gold) !important;
+  color: var(--gold);
   text-shadow: 2px 2px 4px var(--shadow);
   margin-bottom: 1rem;
   position: relative;
@@ -157,7 +155,7 @@ h3::before {
 }
 
 .nav-link {
-  color: var(--white) !important;
+  color: var(--cream) !important;
   font-weight: 500;
   transition: all 0.3s ease;
   padding: 10px 15px !important;
@@ -204,7 +202,7 @@ h3::before {
 
 .btn-primary {
   background: var(--gradient-red);
-  color: var(--white) !important;
+  color: var(--cream);
   box-shadow: 0 5px 15px rgba(220, 20, 60, 0.4);
 }
 
@@ -212,12 +210,12 @@ h3::before {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(220, 20, 60, 0.6);
   background: var(--gradient-gold);
-  color: var(--primary-black) !important;
+  color: var(--primary-black);
 }
 
 .btn-secondary {
   background: var(--gradient-gold);
-  color: var(--primary-black) !important;
+  color: var(--primary-black);
   box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
 }
 
@@ -225,7 +223,7 @@ h3::before {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
   background: var(--gradient-red);
-  color: var(--white) !important;
+  color: var(--cream);
 }
 
 /* Картки в японському стилі */
@@ -239,7 +237,6 @@ h3::before {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  color: var(--white) !important;
 }
 
 .card::before {
@@ -263,7 +260,7 @@ h3::before {
 
 .card-header {
   background: var(--gradient-red) !important;
-  color: var(--white) !important;
+  color: var(--cream) !important;
   border-bottom: 2px solid var(--gold) !important;
   font-weight: 600;
   text-align: center;
@@ -271,7 +268,7 @@ h3::before {
 }
 
 .card-body {
-  color: var(--white) !important;
+  color: var(--cream) !important;
   padding: 25px !important;
 }
 
@@ -285,14 +282,13 @@ h3::before {
 .card-text {
   line-height: 1.7;
   margin-bottom: 20px;
-  color: var(--white) !important;
 }
 
 /* Форми в японському стилі */
 .form-control {
   background: var(--charcoal) !important;
   border: 2px solid var(--primary-red) !important;
-  color: var(--white) !important;
+  color: var(--cream) !important;
   border-radius: 15px !important;
   padding: 15px 20px !important;
   transition: all 0.3s ease;
@@ -302,13 +298,13 @@ h3::before {
 .form-control:focus {
   background: var(--charcoal) !important;
   border-color: var(--gold) !important;
-  color: var(--white) !important;
+  color: var(--cream) !important;
   box-shadow: 0 0 20px rgba(255, 215, 0, 0.3) !important;
   transform: scale(1.02);
 }
 
 .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: rgba(255, 248, 220, 0.6) !important;
 }
 
 .form-label {
@@ -321,7 +317,7 @@ h3::before {
 /* Таблиці в японському стилі */
 .table {
   background: var(--charcoal) !important;
-  color: var(--white) !important;
+  color: var(--cream) !important;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 30px var(--shadow);
@@ -329,7 +325,7 @@ h3::before {
 
 .table thead th {
   background: var(--gradient-red) !important;
-  color: var(--white) !important;
+  color: var(--cream) !important;
   border: none !important;
   padding: 20px !important;
   font-family: 'Cinzel', serif;
@@ -340,7 +336,6 @@ h3::before {
   border-color: var(--primary-red) !important;
   padding: 15px 20px !important;
   vertical-align: middle;
-  color: var(--white) !important;
 }
 
 .table tbody tr:hover {
@@ -364,7 +359,7 @@ h3::before {
 
 .alert-danger {
   background: var(--gradient-red) !important;
-  color: var(--white) !important;
+  color: var(--cream) !important;
 }
 
 .alert-warning {
@@ -473,86 +468,10 @@ h3::before {
 /* Селекція тексту */
 ::selection {
   background: var(--primary-red);
-  color: var(--white);
+  color: var(--cream);
 }
 
 ::-moz-selection {
   background: var(--primary-red);
-  color: var(--white);
-}
-
-/* Додаткові класи для білого тексту */
-.text-white {
-  color: var(--white) !important;
-}
-
-.text-muted {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-.lead {
-  color: var(--white) !important;
-}
-
-p {
-  color: var(--white) !important;
-}
-
-/* Забезпечення видимості тексту */
-div, span, li, ul, ol, dl, dt, dd {
-  color: var(--white);
-}
-
-/* Заголовки залишаються золотими */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--gold) !important;
-}
-
-/* Брендинг та лейбли */
-.navbar-brand,
-.card-title,
-.form-label {
-  color: var(--gold) !important;
-}
-
-/* Спеціальні елементи зберігають свої кольори */
-.btn-primary,
-.btn-secondary,
-.nav-link,
-.card-header,
-.alert,
-.badge {
-  /* Зберігаємо оригінальні кольори */
-}
-
-/* Посилання */
-a {
-  color: var(--gold);
-}
-
-a:hover {
-  color: var(--warm-gold);
-}
-
-/* Текст в списках */
-.list-group-item {
-  background: var(--charcoal) !important;
-  color: var(--white) !important;
-  border-color: var(--primary-red) !important;
-}
-
-/* Акордеони та інші компоненти */
-.accordion-item {
-  background: var(--charcoal) !important;
-  color: var(--white) !important;
-}
-
-.accordion-header button {
-  background: var(--gradient-red) !important;
-  color: var(--white) !important;
-}
-
-.accordion-body {
-  background: var(--charcoal) !important;
-  color: var(--white) !important;
+  color: var(--cream);
 }

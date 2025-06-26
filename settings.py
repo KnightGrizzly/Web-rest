@@ -12,8 +12,8 @@ class DatabaseConfig:
     DB_USER = os.getenv("DB_USER", "postgres")
     DB_PASSWORD = os.getenv("DB_PASSWORD")
 
-    ROOT_DB_PASSWORD = os.getenv("DB_PASSWORD")
     ROOT_DB_USER = os.getenv("DB_USER", "postgres")
+    ROOT_DB_PASSWORD = os.getenv("DB_PASSWORD")
 
     SECRET_KEY = os.getenv("SECRET_KEY")
     

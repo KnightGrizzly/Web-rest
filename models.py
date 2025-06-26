@@ -16,10 +16,6 @@ class User(UserMixin, Base):
     
     is_admin: Mapped[bool] = mapped_column(default=False)
     
-    reservations = relationship("Reservation", 
-                                foreign_keys="Reservation.user_id", 
-                                back_populates="user",
-                                cascade="all, delete-orphan")
     orders = relationship("Orders", 
                             foreign_keys="Orders.user_id",
                             back_populates='user', 
@@ -57,15 +53,6 @@ class Menu(Base):
     
     file_name: Mapped[str] = mapped_column(String)
 
-class Reservation(Base):
-    __tablename__ = "reservation"
-    id: Mapped[int] = mapped_column(primary_key=True)
-    time_start: Mapped[datetime] = mapped_column(DateTime)
-    type_table: Mapped[str] = mapped_column(String(20))
-    user_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
-
-    user = relationship("User", foreign_keys="Reservation.user_id", back_populates="reservations")
-
 
 class Orders(Base):
     __tablename__ = "orders"
@@ -73,9 +60,10 @@ class Orders(Base):
     order_list: Mapped[dict] = mapped_column(JSONB)
     order_time: Mapped[datetime] = mapped_column(DateTime)
     user_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
+    
+    status: Mapped[str] = mapped_column(default = "active")     # "disable", "compile"
 
     user = relationship("User", foreign_keys="Orders.user_id", back_populates="orders")
-
 
 
 # Ініціалізація бази даних і додавання товарів
@@ -92,26 +80,126 @@ def init_db():
     )
     
     m1 = Menu(
-        name = "Burger",
-        weight = "300",
-        ingredients = "булка, котлета теляча, сир, помідор, соус, лук, зелнь",
-        description = "Соковитий бургер",
-        price = 250, 
-        file_name = "burger.jpg",
+        name = "Каліфорнія з крабом",
+        weight = "220",
+        ingredients = "Крабовий мікс, огірок, авокадо, ікра масаго",
+        description = "Соковита каліфорнія",
+        price = 165, 
+        # file_name = 
     )
-    
     m2 = Menu(
+        name = "Філадульфія з лососем",
+        weight = "210",
+        ingredients = "Лосось, вершковий сир, огірок",
+        description = "Соковита філадельфія",
+        price = 185, 
+        # file_name = 
+     )
+    m3 = Menu(
+        name = "Спайсі тунець",
+        weight = "200",
+        ingredients = "Тунець, спайсі соус, авокадо",
+        description = "Соковитий тунець",
+        price = 175, 
+        # file_name = 
+    )    
+    m4 = Menu(
+        name = "Огірковий рол",
+        weight = "180",
+        ingredients = "Огірок, кунжут, водорості норі",
+        description = "Соковита рол",
+        price = 110, 
+        # file_name = 
+    )
+
+
+    m5 = Menu(
+        name = "Каліфорнія з крабом",
+        weight = "220",
+        ingredients = "Крабовий мікс, огірок, авокадо, ікра масаго",
+        description = "Соковита каліфорнія",
+        price = 165, 
+        # file_name = 
+    )
+    m6 = Menu(
+        name = "Каліфорнія з крабом",
+        weight = "220",
+        ingredients = "Крабовий мікс, огірок, авокадо, ікра масаго",
+        description = "Соковита каліфорнія",
+        price = 165, 
+        # file_name = 
+    )
+    m7 = Menu(
+        name = "Каліфорнія з крабом",
+        weight = "220",
+        ingredients = "Крабовий мікс, огірок, авокадо, ікра масаго",
+        description = "Соковита каліфорнія",
+        price = 165, 
+        # file_name = 
+    )
+
+
+    m8 = Menu(
+        name = "Чука салат",
+        weight = "120",
+        ingredients = "Морські водорості, горіховий соус",
+        description = "Смачний салат",
+        price = 95, 
+        # file_name = 
+    )
+    m9 = Menu(
         name = "Салат з лососем",
         weight = "150",
         ingredients = "Лосось, мікс салатів, кунжут, соус",
-        description = "Салат дууууже смачний!!!",
+        description = "Смачний салат",
         price = 145, 
-        file_name = "salad.jpg",
+        # file_name = 
     )
-    
+
+
+    m10 = Menu(
+        name = "Місо суп",
+        weight = "300",
+        ingredients = "Тофу, вакасаме, зелена цибуля",
+        description = "Смачний суп",
+        price = 75, 
+        # file_name = 
+    )
+    m11 = Menu(
+        name = "Суп з лососем",
+        weight = "350",
+        ingredients = "Лосось, овочі, соєвий бульйон",
+        description = "Смачний суп",
+        price = 110, 
+        # file_name = 
+    )
+
+
+    m12 = Menu(
+        name = "Зелений чай",
+        weight = "300",
+        description = "Гарячий/холодний чай",
+        price = 45, 
+        # file_name = 
+    )
+    m13 = Menu(
+        name = "Газована вода",
+        weight = "500",
+        description = "Холодна вода",
+        price = 40, 
+        # file_name = 
+    )
+    m14 = Menu(
+        name = "Морс журавлинний",
+        weight = "300",
+        description = "Смачний напій",
+        price = 50, 
+        # file_name = 
+    )
+
 
     with Session_db() as conn:
-        conn.add_all([user_admin, m1, m2])
+        conn.add_all([user_admin, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14])
         conn.commit()
 
 

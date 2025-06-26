@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{name_restaurant}}{% endblock title %}
+
+
+{% block content %}
+
+    <h2> Кошик {{current_user.username}} </h2>
+
+     {%if basket%}
+        <ul>
+            {%for position in basket%}
+                <li>{{position}} , к-сть: {{basket[position]}}</li>
+            {%endfor%}
+        </ul>
+        
+        <form method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="submit" value="Оформити замволення">
+        </form>
+    
+    {%else%}
+        <h1>Ваш список замовлень пустий</h1>
+    {%endif%}
+
+{% endblock content %}

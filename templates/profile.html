@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}{{name_restaurant}}{% endblock title %}
+{% block title %}{{title}}{% endblock title %}
+
 {% block content %}
     <h1>Це Аккаунт {{ current_user.username }} </h1><br>
-    <a href="{{ url_for('logout') }}">Вийти</a>
+    
+    <h2>Ваші замовлення</h2>
+    {% for order in us_orders %}
+        <p>Замовлення No{{ order.id }} від {{ order.order_time }}</p>
+        <p>Список: {{ order.order_list }}</p>
+        <p> Статус: {{ order.status }}</p>
+
+        <button><a href="{{ url_for('order_details', order_id = order.id) }}">Переглянути деталі</a></button>
+    {% endfor %}
 
 
 {% endblock content %}
